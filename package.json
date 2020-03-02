@@ -1,0 +1,31 @@
+{
+  "name": "data-structure",
+  "version": "1.0.0",
+  "description": "Data-structures for javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=lcov mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulosales/data-structure.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulosales/data-structure/issues"
+  },
+  "homepage": "https://github.com/paulosales/data-structure#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.1.4",
+    "nyc": "^15.0.0"
+  }
+}

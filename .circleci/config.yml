@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:13.0.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v0dependencies-{{checksum "package.json"}}
+            - v0dependencies-
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v0dependencies-{{checksum "package.json"}}
+      - run: npm test
