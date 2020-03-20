@@ -14,4 +14,4 @@ jobs:
           paths:
             - node_modules
           key: v0dependencies-{{checksum "package.json"}}
-      - run: npm test:coverage
+      - run: npm run test:coverage
