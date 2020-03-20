@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.5
 jobs:
   build:
     docker:
@@ -17,5 +15,3 @@ jobs:
             - node_modules
           key: v0dependencies-{{checksum "package.json"}}
       - run: npm test:coverage
-      - codecov/upload:
-          file: coverage/
