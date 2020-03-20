@@ -15,3 +15,4 @@ jobs:
             - node_modules
           key: v0dependencies-{{checksum "package.json"}}
       - run: npm run test:coverage
+      - run: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
