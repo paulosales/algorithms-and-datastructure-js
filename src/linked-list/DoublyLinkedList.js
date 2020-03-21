@@ -7,17 +7,17 @@
 
 'use strict'
 
-const { InvalidArgument } = require('../exception/InvalidArgument');
+const { InvalidArgument } = require('../exception/InvalidArgument')
 
 class DoublyLinkedList {
-  constructor () {
+  constructor() {
     this.head = null
     this.tail = null
   }
 
-  insertBeginning (node) {
+  insertBeginning(node) {
     if (!(node instanceof DoublyLinkedNode)) {
-      throw new InvalidArgument('node should be a instance of DoublyLinkedNode');
+      throw new InvalidArgument('node should be a instance of DoublyLinkedNode')
     }
     node.prev = null
     node.next = this.head
@@ -30,7 +30,7 @@ class DoublyLinkedList {
     }
   }
 
-  removeBeginning () {
+  removeBeginning() {
     const currentNode = this.head
     if (this.head) {
       if (this.head.next) {
@@ -46,9 +46,9 @@ class DoublyLinkedList {
     return null
   }
 
-  insertEnd (node) {
+  insertEnd(node) {
     if (!(node instanceof DoublyLinkedNode)) {
-      throw new InvalidArgument('node should be a instance of DoublyLinkedNode');
+      throw new InvalidArgument('node should be a instance of DoublyLinkedNode')
     }
     node.next = null
     node.prev = this.tail
@@ -61,7 +61,7 @@ class DoublyLinkedList {
     }
   }
 
-  removeEnd () {
+  removeEnd() {
     const currentNode = this.tail
     if (this.tail) {
       if (this.tail.prev) {
@@ -77,7 +77,7 @@ class DoublyLinkedList {
     return null
   }
 
-  get (index) {
+  get(index) {
     let currentNode = this.head
     for (let i = 0; i < index && currentNode; i++) {
       currentNode = currentNode.next
@@ -92,7 +92,7 @@ class DoublyLinkedList {
 }
 
 class DoublyLinkedNode {
-  constructor (data = null) {
+  constructor(data = null) {
     this.prev = null
     this.data = data
     this.next = null

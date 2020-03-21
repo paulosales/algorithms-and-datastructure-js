@@ -7,18 +7,21 @@
 
 'use strict'
 
-const { DoublyLinkedList, DoublyLinkedNode } = require('../linked-list/DoublyLinkedList')
+const {
+  DoublyLinkedList,
+  DoublyLinkedNode,
+} = require('../linked-list/DoublyLinkedList')
 class Queue {
-  constructor () {
+  constructor() {
     this.linkedList = new DoublyLinkedList()
   }
 
-  enqueue (data) {
+  enqueue(data) {
     const node = new DoublyLinkedNode(data)
     this.linkedList.insertBeginning(node)
   }
 
-  dequeue () {
+  dequeue() {
     const removed = this.linkedList.removeEnd()
     if (removed) {
       return removed.data

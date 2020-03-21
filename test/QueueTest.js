@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const { Queue } = require('../src/queue/Queue');
+const { Queue } = require('../src/queue/Queue')
 const { assert } = require('chai')
 
-describe('Queue', function () {
-  describe('#enqueue()', function () {
-    it('should keep two values when enqueue and dequeue two values', function () {
+describe('Queue', function() {
+  describe('#enqueue()', function() {
+    it('should keep two values when enqueue and dequeue two values', function() {
       var queue = new Queue()
       queue.enqueue(1)
       queue.enqueue(2)
@@ -22,8 +22,8 @@ describe('Queue', function () {
     })
   })
 
-  describe('#dequeue()', function () {
-    it('should get null when dequeue an empty queue', function () {
+  describe('#dequeue()', function() {
+    it('should get null when dequeue an empty queue', function() {
       var queue = new Queue()
       assert.isNull(queue.dequeue(), 'push not working')
     })

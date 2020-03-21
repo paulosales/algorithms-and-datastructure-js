@@ -9,13 +9,15 @@
 
 const { InvalidArgument } = require('../exception/InvalidArgument')
 class SinglyLinkedList {
-  constructor () {
+  constructor() {
     this.head = null
   }
 
-  insertBeginning (newNode) {
+  insertBeginning(newNode) {
     if (!(newNode instanceof SinglyLinkedNode)) {
-      throw new InvalidArgument('newNode should be a instance of SinglyLinkedNode.')
+      throw new InvalidArgument(
+        'newNode should be a instance of SinglyLinkedNode.'
+      )
     }
     const currentHead = this.head
     this.head = newNode
@@ -27,19 +29,23 @@ class SinglyLinkedList {
    * @param {SinglyLinkedNode} node The specific node where a new node will be inserted after.
    * @param {SinglyLinkedNode} newNode The new node that will be inserted.
    */
-  insertAfter (node, newNode) {
+  insertAfter(node, newNode) {
     if (!(newNode instanceof SinglyLinkedNode)) {
-      throw new InvalidArgument('newNode should be a instance of SinglyLinkedNode.')
+      throw new InvalidArgument(
+        'newNode should be a instance of SinglyLinkedNode.'
+      )
     }
     if (!(node instanceof SinglyLinkedNode)) {
-      throw new InvalidArgument('node should be a instance of SinglyLinkedNode.')
+      throw new InvalidArgument(
+        'node should be a instance of SinglyLinkedNode.'
+      )
     }
     const theNext = node.next
     node.next = newNode
     newNode.next = theNext
   }
 
-  removeBeginning () {
+  removeBeginning() {
     const currentNode = this.head
     if (this.head) {
       this.head = this.head.next
@@ -54,7 +60,7 @@ class SinglyLinkedList {
    * Removes a node from List.
    * @param {SinglyLinkedNode} node;
    */
-  remove (node) {
+  remove(node) {
     if (this.head === node) {
       this.head = this.head.next
       return
@@ -68,7 +74,7 @@ class SinglyLinkedList {
     }
   }
 
-  get (index) {
+  get(index) {
     let currentNode = this.head
     for (let i = 0; i < index && currentNode; i++) {
       currentNode = currentNode.next
@@ -81,7 +87,7 @@ class SinglyLinkedList {
     }
   }
 
-  toString () {
+  toString() {
     let currentNode = this.head
     let stringRepresentation = ''
     while (currentNode) {
@@ -93,10 +99,10 @@ class SinglyLinkedList {
 }
 
 class SinglyLinkedNode {
-  constructor (data = null) {
+  constructor(data = null) {
     this.data = data
     this.next = null
   }
 }
 
-module.exports = { SinglyLinkedList, SinglyLinkedNode };
+module.exports = { SinglyLinkedList, SinglyLinkedNode }

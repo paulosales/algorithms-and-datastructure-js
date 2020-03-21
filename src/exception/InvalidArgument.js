@@ -7,7 +7,7 @@
 
 'use strict'
 
-function InvalidArgument (message) {
+function InvalidArgument(message) {
   Error.call(this, message)
   this.message = message
 }

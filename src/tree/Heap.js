@@ -8,7 +8,7 @@
 'use strict'
 
 class Heap {
-  constructor (compareFunc) {
+  constructor(compareFunc) {
     if (!compareFunc) {
       throw new Error('You should inform a compare function.')
     }
@@ -19,25 +19,25 @@ class Heap {
     this.compareFunc = compareFunc
   }
 
-  swap (a, b) {
+  swap(a, b) {
     const tmp = this._heap[a]
     this._heap[a] = this._heap[b]
     this._heap[b] = tmp
   }
 
-  getParentIndex (index) {
+  getParentIndex(index) {
     return Math.floor((index - 1) / 2)
   }
 
-  getLeftChildIndex (index) {
+  getLeftChildIndex(index) {
     return index * 2 + 1
   }
 
-  getRightChildIndex (index) {
+  getRightChildIndex(index) {
     return index * 2 + 2
   }
 
-  headpfyUp (index) {
+  headpfyUp(index) {
     if (index === 0) {
       return
     }
@@ -48,7 +48,7 @@ class Heap {
     }
   }
 
-  heapfyDown (index) {
+  heapfyDown(index) {
     const left = this.getLeftChildIndex(index)
     const right = this.getRightChildIndex(index)
     let child = null
@@ -72,12 +72,12 @@ class Heap {
     }
   }
 
-  insert (data) {
+  insert(data) {
     this._heap.push(data)
     this.headpfyUp(this._heap.length - 1)
   }
 
-  remove (data) {
+  remove(data) {
     const index = this._heap.indexOf(data)
     if (index !== -1) {
       this._heap[index] = this._heap[this._heap.length - 1]
@@ -86,7 +86,7 @@ class Heap {
     }
   }
 
-  get () {
+  get() {
     if (this._heap.length) {
       return this._heap[0]
     } else {
@@ -94,11 +94,11 @@ class Heap {
     }
   }
 
-  size () {
+  size() {
     return this._heap.length
   }
 
-  extract () {
+  extract() {
     const data = this._heap[0]
     this._heap[0] = this._heap[this._heap.length - 1]
     this._heap.pop()

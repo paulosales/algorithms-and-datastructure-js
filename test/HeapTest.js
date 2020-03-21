@@ -8,7 +8,7 @@
 const { Heap } = require('../src/tree/Heap')
 const { assert } = require('chai')
 
-describe('Heap', function () {
+describe('Heap', function() {
   describe('#constructor', () => {
     context('with no compare function', () => {
       it('should fail', () => {
@@ -27,7 +27,10 @@ describe('Heap', function () {
           const heap = new Heap('invalid function')
           assert.fail('it should fail, but returned %s', heap.toString)
         } catch (e) {
-          assert.equal(e.message, 'The compareFunc parameter should be a function.')
+          assert.equal(
+            e.message,
+            'The compareFunc parameter should be a function.'
+          )
         }
       })
     })
@@ -43,8 +46,8 @@ describe('Heap', function () {
     })
   })
 
-  describe('#insert(data)', function () {
-    it('should insert 4 items in que heap and check the heap integrity.', function () {
+  describe('#insert(data)', function() {
+    it('should insert 4 items in que heap and check the heap integrity.', function() {
       const heap = new Heap((a, b) => a - b)
       heap.insert(8)
       heap.insert(4)
@@ -55,8 +58,8 @@ describe('Heap', function () {
     })
   })
 
-  describe('#extract()', function () {
-    it('should insert 4 items in que heap and extract the min value.', function () {
+  describe('#extract()', function() {
+    it('should insert 4 items in que heap and extract the min value.', function() {
       const heap = new Heap((a, b) => a - b)
       heap.insert(8)
       heap.insert(4)
@@ -65,23 +68,39 @@ describe('Heap', function () {
 
       const value1 = heap.extract()
       assert.equal(value1, 2, `O valor esperado é 2 e veio ${value1}.`)
-      assert.equal(heap.size(), 3, `O valor esperado é 3 e veio ${heap.size()}.`)
+      assert.equal(
+        heap.size(),
+        3,
+        `O valor esperado é 3 e veio ${heap.size()}.`
+      )
 
       const value2 = heap.extract()
       assert.equal(value2, 4, `O valor esperado é 4 e veio ${value2}.`)
-      assert.equal(heap.size(), 2, `O valor esperado é 2 e veio ${heap.size()}.`)
+      assert.equal(
+        heap.size(),
+        2,
+        `O valor esperado é 2 e veio ${heap.size()}.`
+      )
 
       const value3 = heap.extract()
       assert.equal(value3, 7, `O valor esperado é 7 e veio ${value3}.`)
-      assert.equal(heap.size(), 1, `O valor esperado é 1 e veio ${heap.size()}.`)
+      assert.equal(
+        heap.size(),
+        1,
+        `O valor esperado é 1 e veio ${heap.size()}.`
+      )
 
       const value4 = heap.extract()
       assert.equal(value4, 8, `O valor esperado é 8 e veio ${value4}.`)
-      assert.equal(heap.size(), 0, `O valor esperado é 0 e veio ${heap.size()}.`)
+      assert.equal(
+        heap.size(),
+        0,
+        `O valor esperado é 0 e veio ${heap.size()}.`
+      )
     })
   })
 
-  describe('#remove()', function () {
+  describe('#remove()', function() {
     it('inserting 4 items and removing', () => {
       const heap = new Heap((a, b) => a - b)
       heap.insert(8)

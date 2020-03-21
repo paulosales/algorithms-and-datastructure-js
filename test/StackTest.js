@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const chai = require('chai');
-const { Stack } = require('../src/stack/Stack');
+const chai = require('chai')
+const { Stack } = require('../src/stack/Stack')
 
-describe('Stack', function () {
-  describe('#pop()', function () {
-    it('should remove one value when pop one value', function () {
+describe('Stack', function() {
+  describe('#pop()', function() {
+    it('should remove one value when pop one value', function() {
       var queue = new Stack()
       queue.push(1)
       queue.push(2)
@@ -24,8 +24,8 @@ describe('Stack', function () {
     })
   })
 
-  describe('#get(index)', function () {
-    it('should get the right data using index', function () {
+  describe('#get(index)', function() {
+    it('should get the right data using index', function() {
       var queue = new Stack()
       queue.push(1)
       queue.push(2)
