@@ -1,13 +1,23 @@
+/**
+ * Copyright (c) 2019-present, Paulo Rogério Sales Santos - <paulosales@gmail.com>
+ *
+ * This source code is licensed under the MIT license found in then
+ * LICENSE file in the root directory of this source tree.
+ */
+
 'use strict'
 
-var { SinglyLinkedList, SinglyLinkedNode } = require("../linked-list/SinglyLinkedList")
+var {
+  SinglyLinkedList,
+  SinglyLinkedNode,
+} = require('../linked-list/SinglyLinkedList')
 
 class Stack {
-  constructor () {
+  constructor() {
     this.linkedList = new SinglyLinkedList()
   }
 
-  pop () {
+  pop() {
     const removed = this.linkedList.removeBeginning()
     if (removed) {
       return removed.data
@@ -16,12 +26,12 @@ class Stack {
     }
   }
 
-  push (data) {
+  push(data) {
     const node = new SinglyLinkedNode(data)
     this.linkedList.insertBeginning(node)
   }
 
-  get (index) {
+  get(index) {
     return this.linkedList.get(index)
   }
 }

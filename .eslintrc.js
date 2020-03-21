@@ -1,3 +1,4 @@
 module.exports = {
-    "extends": "standard"
-};
+  extends: ['standard', 'plugin:prettier/recommended'],
+  ignorePatterns: ['coverage/', 'node_modules/'],
+}

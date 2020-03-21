@@ -1,4 +1,14 @@
-const { DoublyLinkedList, DoublyLinkedNode } = require('../src/linked-list/DoublyLinkedList');
+/**
+ * Copyright (c) 2019-present, Paulo Rogério Sales Santos - <paulosales@gmail.com>
+ *
+ * This source code is licensed under the MIT license found in then
+ * LICENSE file in the root directory of this source tree.
+ */
+
+const {
+  DoublyLinkedList,
+  DoublyLinkedNode,
+} = require('../src/linked-list/DoublyLinkedList')
 
 const assert = require('chai').assert
 
@@ -20,7 +30,7 @@ describe('DoublyLinkedNode', () => {
   })
 })
 
-describe('DoublyLinkedList', function () {
+describe('DoublyLinkedList', function() {
   describe('#get(index)', () => {
     context('get a item from a unexistent index', () => {
       const list = new DoublyLinkedList()
@@ -29,9 +39,9 @@ describe('DoublyLinkedList', function () {
     })
   })
 
-  describe('#insertBeginning(data)', function () {
+  describe('#insertBeginning(data)', function() {
     context('insert three items and remove them from head', () => {
-      it('should insertBeginning three items to head', function () {
+      it('should insertBeginning three items to head', function() {
         const list = new DoublyLinkedList()
         const node1 = new DoublyLinkedNode(1)
         const node2 = new DoublyLinkedNode(2)
@@ -49,34 +59,40 @@ describe('DoublyLinkedList', function () {
     })
 
     context('with a invalide node', () => {
-      it('should raise an error.', function () {
+      it('should raise an error.', function() {
         const list = new DoublyLinkedList()
         try {
           list.insertBeginning(1)
           assert.fail('should raise a InvalidArgument error.')
         } catch (e) {
-          assert.equal(e.message, 'node should be a instance of DoublyLinkedNode')
+          assert.equal(
+            e.message,
+            'node should be a instance of DoublyLinkedNode'
+          )
         }
       })
     })
   })
 
-  describe('#insertEnd(data)', function () {
+  describe('#insertEnd(data)', function() {
     context('with a invalid node', () => {
       it('should raise a error', () => {
         const list = new DoublyLinkedList()
         try {
           list.insertEnd('')
         } catch (e) {
-          assert.equal(e.message, 'node should be a instance of DoublyLinkedNode')
+          assert.equal(
+            e.message,
+            'node should be a instance of DoublyLinkedNode'
+          )
         }
       })
     })
   })
 
-  describe('#removeBeginning()', function () {
+  describe('#removeBeginning()', function() {
     context('insert three items and remove them', () => {
-      it('should be inserted and removed successfully', function () {
+      it('should be inserted and removed successfully', function() {
         const list = new DoublyLinkedList()
         const node1 = new DoublyLinkedNode(1)
         const node2 = new DoublyLinkedNode(2)
@@ -96,7 +112,7 @@ describe('DoublyLinkedList', function () {
     })
 
     context('insert two items at the end and remove them from beginnig', () => {
-      it('should insertEnd and removeBeginning two itens', function () {
+      it('should insertEnd and removeBeginning two itens', function() {
         const list = new DoublyLinkedList()
         const node1 = new DoublyLinkedNode(1)
         const node2 = new DoublyLinkedNode(2)
@@ -128,8 +144,8 @@ describe('DoublyLinkedList', function () {
     })
   })
 
-  describe('#insertEnd(data)', function () {
-    it('should insertEnd three items', function () {
+  describe('#insertEnd(data)', function() {
+    it('should insertEnd three items', function() {
       const list = new DoublyLinkedList()
       const node1 = new DoublyLinkedNode(1)
       const node2 = new DoublyLinkedNode(2)
@@ -146,8 +162,8 @@ describe('DoublyLinkedList', function () {
     })
   })
 
-  describe('#removeEnd()', function () {
-    it('should insertEnd and removeEnd three items', function () {
+  describe('#removeEnd()', function() {
+    it('should insertEnd and removeEnd three items', function() {
       const list = new DoublyLinkedList()
       const node1 = new DoublyLinkedNode(1)
       const node2 = new DoublyLinkedNode(2)
@@ -165,7 +181,7 @@ describe('DoublyLinkedList', function () {
       assert.equal(list.tail, null, 'removeEnd not working.')
     })
 
-    it('should insertEnd and removeBeginning two itens', function () {
+    it('should insertEnd and removeBeginning two itens', function() {
       const list = new DoublyLinkedList()
       const node1 = new DoublyLinkedNode(1)
       const node2 = new DoublyLinkedNode(2)
@@ -179,7 +195,7 @@ describe('DoublyLinkedList', function () {
       assert.equal(list.tail, null, 'removeBeginning not working.')
     })
 
-    it('removeEnd of an empty list', function () {
+    it('removeEnd of an empty list', function() {
       const list = new DoublyLinkedList()
       const nullData = list.removeEnd()
       assert.isNull(nullData)
