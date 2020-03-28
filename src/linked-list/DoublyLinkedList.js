@@ -91,10 +91,10 @@ class DoublyLinkedList {
   }
 
   /**
-   * Search da data into the linked list and return it.
-   * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested data is founded.
+   * Search the node into the linked list and return it.
+   * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested node is founded.
    */
-  get(finder) {
+  getNode(finder) {
     let currentNode = this.head
     if (typeof finder === 'number') {
       for (let i = 0; i < finder && currentNode; i++) {
@@ -109,6 +109,16 @@ class DoublyLinkedList {
         'The finder should be a index number or a function.'
       )
     }
+
+    return currentNode
+  }
+
+  /**
+   * Search the data into the linked list and return it.
+   * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested data is founded.
+   */
+  get(finder) {
+    const currentNode = this.getNode(finder)
 
     if (currentNode) {
       return currentNode.data

@@ -9,11 +9,18 @@
 
 const InvalidArgument = require('../exception/InvalidArgument')
 
+/**
+ * A Singly Linked List
+ */
 class SinglyLinkedList {
   constructor() {
     this.head = null
   }
 
+  /**
+   * Insert a data into the beginning of the linked list.
+   * @param {any} data Data that will be inserted.
+   */
   insertBeginning(data) {
     const newNode = new SinglyLinkedNode(data)
     const currentHead = this.head
@@ -21,6 +28,9 @@ class SinglyLinkedList {
     this.head.next = currentHead
   }
 
+  /**
+   * Remove the begging node.
+   */
   removeBeginning() {
     const currentNode = this.head
     if (this.head) {
@@ -32,7 +42,11 @@ class SinglyLinkedList {
     return null
   }
 
-  get(finder) {
+  /**
+   * Search the node into the linked list and return it.
+   * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested node is founded.
+   */
+  getNode(finder) {
     let currentNode = this.head
     if (typeof finder === 'number') {
       for (let i = 0; i < finder && currentNode; i++) {
@@ -49,12 +63,29 @@ class SinglyLinkedList {
     }
 
     if (currentNode) {
+      return currentNode
+    } else {
+      return null
+    }
+  }
+
+  /**
+   * Search the data into the linked list and return it.
+   * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested data is founded.
+   */
+  get(finder) {
+    const currentNode = this.getNode(finder)
+
+    if (currentNode) {
       return currentNode.data
     } else {
       return null
     }
   }
 
+  /**
+   * Get the linked list represented as string.
+   */
   toString() {
     let currentNode = this.head
     let stringRepresentation = ''
@@ -66,6 +97,9 @@ class SinglyLinkedList {
   }
 }
 
+/**
+ * A Singly Linked List Node
+ */
 class SinglyLinkedNode {
   constructor(data = null) {
     this.data = data
