@@ -54,3 +54,5 @@ Here we have a graphical representation of a Trie:
   alt="Singly Linked List" width="450"/>
 
 The above trie stores the words **a**, **am**, **all**, **to**, **the**, **they**, **there**, **their**, **no**, and **not**.
+
+## Hashtable
