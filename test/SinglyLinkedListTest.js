@@ -8,6 +8,9 @@
 const SinglyLinkedList = require('../src/linked-list/SinglyLinkedList')
 const InvalidArgument = require('../src/exception/InvalidArgument')
 const chai = require('chai')
+const dirtyChai = require('dirty-chai')
+chai.use(dirtyChai)
+const expect = chai.expect
 
 describe('SinglyLinkedList', function() {
   describe('#insertBeginning()', function() {
@@ -15,8 +18,8 @@ describe('SinglyLinkedList', function() {
       const list = new SinglyLinkedList()
       list.insertBeginning(1)
       list.insertBeginning(2)
-      chai.assert.equal(list.head.data, 2, 'insertBeginning not working')
-      chai.assert.equal(list.head.next.data, 1, 'insertBeginning not working')
+      expect(list.head.data).to.be.equal(2)
+      expect(list.head.next.data).to.be.equal(1)
     })
   })
 
@@ -26,14 +29,14 @@ describe('SinglyLinkedList', function() {
       list.insertBeginning(1)
       list.insertBeginning(2)
       const removed = list.removeBeginning()
-      chai.assert.equal(removed, 2, 'removeBeginning not working')
-      chai.assert.equal(list.head.data, 1, 'removeBeginning not working')
+      expect(removed).to.be.equal(2)
+      expect(list.head.data).to.be.equal(1)
     })
 
     it('should removeBeginning null from empty list', function() {
       const list = new SinglyLinkedList()
       const nullData = list.removeBeginning()
-      chai.assert.isNull(nullData, 'removeBeginning not working')
+      expect(nullData).to.be.null()
     })
   })
 
@@ -47,10 +50,10 @@ describe('SinglyLinkedList', function() {
       const second = list.get(1)
       const third = list.get(2)
       const inexistent = list.get(3)
-      chai.assert.equal(first, 3, 'get not working')
-      chai.assert.equal(second, 2, 'get not working')
-      chai.assert.equal(third, 1, 'get not working')
-      chai.assert.isNull(inexistent)
+      expect(first).to.be.equal(3)
+      expect(second).to.be.equal(2)
+      expect(third).to.be.equal(1)
+      expect(inexistent).to.be.null()
     })
 
     it('should get the right data using function', function() {
@@ -62,20 +65,136 @@ describe('SinglyLinkedList', function() {
       const second = list.get(data => data === 2)
       const third = list.get(data => data === 1)
       const inexistent = list.get(data => data === 4)
-      chai.assert.equal(first, 3, 'get not working')
-      chai.assert.equal(second, 2, 'get not working')
-      chai.assert.equal(third, 1, 'get not working')
-      chai.assert.isNull(inexistent)
+      expect(first).to.be.equal(3)
+      expect(second).to.be.equal(2)
+      expect(third).to.equal(1)
+      expect(inexistent)
     })
 
     it('should throws a InvalidArgument exception', function() {
       const list = new SinglyLinkedList()
       try {
         list.get('invalid')
-        chai.assert.fail('A exception should be throw')
+        expect.fail('A exception should be throw')
       } catch (e) {
-        chai.assert.instanceOf(e, InvalidArgument)
+        expect(e).to.be.an.instanceof(InvalidArgument)
       }
+    })
+  })
+
+  describe('#remove(finder)', () => {
+    context('when remove 3 inserted items from the index 0', () => {
+      it('should remove each item sucessfully', () => {
+        const list = new SinglyLinkedList()
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
+
+        const removed1 = list.remove(0)
+        const removed2 = list.remove(0)
+        const removed3 = list.remove(0)
+        const removed4 = list.remove(0)
+
+        expect(removed1).to.be.equal(3)
+        expect(removed2).to.be.equal(2)
+        expect(removed3).to.be.equal(1)
+        expect(removed4).to.be.null()
+      })
+    })
+
+    context('when remove 2 inserted items from the index 1', () => {
+      it('should remove each item sucessfully', () => {
+        const list = new SinglyLinkedList()
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
+
+        const removed1 = list.remove(1)
+        const removed2 = list.remove(1)
+        const removed3 = list.remove(1)
+
+        expect(removed1).to.be.equal(2)
+        expect(removed2).to.be.equal(1)
+        expect(removed3).to.be.null()
+      })
+    })
+
+    context('when remove 1 inserted items from the index 2', () => {
+      it('should remove each item sucessfully', () => {
+        const list = new SinglyLinkedList()
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
+
+        const removed1 = list.remove(2)
+        const removed2 = list.remove(2)
+
+        expect(removed1).to.be.equal(1)
+        expect(removed2).to.be.null()
+      })
+    })
+
+    context('when remove 3 inserted items using finder function', () => {
+      it('should remove each item sucessfully', () => {
+        const list = new SinglyLinkedList()
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
+
+        const removed1 = list.remove(data => data === 3)
+        const removed2 = list.remove(data => data === 2)
+        const removed3 = list.remove(data => data === 1)
+        const removed4 = list.remove(data => data === 1)
+
+        expect(removed1).to.be.equal(3)
+        expect(removed2).to.be.equal(2)
+        expect(removed3).to.be.equal(1)
+        expect(removed4).to.be.null()
+      })
+    })
+
+    context('when remove 2 inserted items using finder function', () => {
+      it('should remove each item sucessfully', () => {
+        const list = new SinglyLinkedList()
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
+
+        const removed1 = list.remove(data => data === 2)
+        const removed2 = list.remove(data => data === 1)
+        const removed3 = list.remove(data => data === 1)
+
+        expect(removed1).to.be.equal(2)
+        expect(removed2).to.be.equal(1)
+        expect(removed3).to.be.null()
+      })
+    })
+
+    context('when remove 1 inserted items using finder function', () => {
+      it('should remove each item sucessfully', () => {
+        const list = new SinglyLinkedList()
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
+
+        const removed1 = list.remove(data => data === 1)
+        const removed2 = list.remove(data => data === 1)
+
+        expect(removed1).to.be.equal(1)
+        expect(removed2).to.be.null()
+      })
+    })
+
+    context('when remove 1 inserted items using a invalid finder', () => {
+      it('should raise a InvalidArgument exception', () => {
+        const list = new SinglyLinkedList()
+        try {
+          list.remove('invalid')
+          expect.fail('should throw a exception here.')
+        } catch (e) {
+          expect(e).to.be.an.instanceof(InvalidArgument)
+        }
+      })
     })
   })
 
@@ -86,8 +205,7 @@ describe('SinglyLinkedList', function() {
       list.insertBeginning(2)
       list.insertBeginning(3)
       const strRepresentation = list.toString()
-      chai.assert.equal(
-        strRepresentation,
+      expect(strRepresentation).to.be.equal(
         '3 -> 2 -> 1 -> ',
         'toString not working'
       )
