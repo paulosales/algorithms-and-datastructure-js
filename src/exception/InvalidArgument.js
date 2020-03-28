@@ -15,4 +15,4 @@ function InvalidArgument(message) {
 InvalidArgument.prototype = Object.create(Error.prototype)
 InvalidArgument.prototype.constructor = InvalidArgument
 
-module.exports = { InvalidArgument }
+module.exports = InvalidArgument

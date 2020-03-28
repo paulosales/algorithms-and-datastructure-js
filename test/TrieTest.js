@@ -1,5 +1,5 @@
 const Trie = require('../src/trie/Trie')
-const { InvalidArgument } = require('../src/exception/InvalidArgument')
+const InvalidArgument = require('../src/exception/InvalidArgument')
 const chai = require('chai')
 const dirtyChai = require('dirty-chai')
 

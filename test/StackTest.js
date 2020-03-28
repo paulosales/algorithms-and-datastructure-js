@@ -6,7 +6,7 @@
  */
 
 const chai = require('chai')
-const { Stack } = require('../src/stack/Stack')
+const Stack = require('../src/stack/Stack')
 
 describe('Stack', function() {
   describe('#pop()', function() {
@@ -16,7 +16,7 @@ describe('Stack', function() {
       stack.push(2)
       const removed1 = stack.pop()
       chai.assert.equal(removed1, 2, 'pop not working')
-      chai.assert.equal(stack.get(0).data, 1, 'pop not working')
+      chai.assert.equal(stack.get(0), 1, 'pop not working')
       const removed2 = stack.pop()
       chai.assert.equal(removed2, 1, 'pop not working')
       const removed3 = stack.pop()
