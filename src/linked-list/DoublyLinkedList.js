@@ -7,18 +7,23 @@
 
 'use strict'
 
-const { InvalidArgument } = require('../exception/InvalidArgument')
+const InvalidArgument = require('../exception/InvalidArgument')
 
+/**
+ * A Doubly Linked List
+ */
 class DoublyLinkedList {
   constructor() {
     this.head = null
     this.tail = null
   }
 
-  insertBeginning(node) {
-    if (!(node instanceof DoublyLinkedNode)) {
-      throw new InvalidArgument('node should be a instance of DoublyLinkedNode')
-    }
+  /**
+   * Create a node in the beginning of the list and store the data there.
+   * @param {any} data The data that will be inserted.
+   */
+  insertBeginning(data) {
+    const node = new DoublyLinkedNode(data)
     node.prev = null
     node.next = this.head
     this.head = node
@@ -30,6 +35,9 @@ class DoublyLinkedList {
     }
   }
 
+  /**
+   * Remove the first node.
+   */
   removeBeginning() {
     const currentNode = this.head
     if (this.head) {
@@ -41,15 +49,17 @@ class DoublyLinkedList {
         this.tail = null
       }
       currentNode.next = null
-      return currentNode
+      return currentNode.data
     }
     return null
   }
 
-  insertEnd(node) {
-    if (!(node instanceof DoublyLinkedNode)) {
-      throw new InvalidArgument('node should be a instance of DoublyLinkedNode')
-    }
+  /**
+   * Create a node in the end of the list and store the data there.
+   * @param {any} data The data that will be inserted.
+   */
+  insertEnd(data) {
+    const node = new DoublyLinkedNode(data)
     node.next = null
     node.prev = this.tail
     this.tail = node
@@ -61,6 +71,9 @@ class DoublyLinkedList {
     }
   }
 
+  /**
+   * Remove the last node.
+   */
   removeEnd() {
     const currentNode = this.tail
     if (this.tail) {
@@ -72,19 +85,33 @@ class DoublyLinkedList {
         this.head = null
       }
       currentNode.prev = null
-      return currentNode
+      return currentNode.data
     }
     return null
   }
 
-  get(index) {
+  /**
+   * Search da data into the linked list and return it.
+   * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested data is founded.
+   */
+  get(finder) {
     let currentNode = this.head
-    for (let i = 0; i < index && currentNode; i++) {
-      currentNode = currentNode.next
+    if (typeof finder === 'number') {
+      for (let i = 0; i < finder && currentNode; i++) {
+        currentNode = currentNode.next
+      }
+    } else if (typeof finder === 'function') {
+      for (let i = 0; currentNode && !finder(currentNode.data); i++) {
+        currentNode = currentNode.next
+      }
+    } else {
+      throw new InvalidArgument(
+        'The finder should be a index number or a function.'
+      )
     }
 
     if (currentNode) {
-      return currentNode
+      return currentNode.data
     } else {
       return null
     }
@@ -99,4 +126,4 @@ class DoublyLinkedNode {
   }
 }
 
-module.exports = { DoublyLinkedList, DoublyLinkedNode }
+module.exports = DoublyLinkedList

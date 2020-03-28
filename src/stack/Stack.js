@@ -7,10 +7,7 @@
 
 'use strict'
 
-var {
-  SinglyLinkedList,
-  SinglyLinkedNode,
-} = require('../linked-list/SinglyLinkedList')
+var SinglyLinkedList = require('../linked-list/SinglyLinkedList')
 
 class Stack {
   constructor() {
@@ -20,15 +17,14 @@ class Stack {
   pop() {
     const removed = this.linkedList.removeBeginning()
     if (removed) {
-      return removed.data
+      return removed
     } else {
       return null
     }
   }
 
   push(data) {
-    const node = new SinglyLinkedNode(data)
-    this.linkedList.insertBeginning(node)
+    this.linkedList.insertBeginning(data)
   }
 
   get(index) {
@@ -36,4 +32,4 @@ class Stack {
   }
 }
 
-module.exports = { Stack }
+module.exports = Stack

@@ -5,30 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const {
-  DoublyLinkedList,
-  DoublyLinkedNode,
-} = require('../src/linked-list/DoublyLinkedList')
+const DoublyLinkedList = require('../src/linked-list/DoublyLinkedList')
+const InvalidArgument = require('../src/exception/InvalidArgument')
 
 const assert = require('chai').assert
-
-describe('DoublyLinkedNode', () => {
-  describe('#constructor', () => {
-    context('with no parameters', () => {
-      it('data should be undefined', () => {
-        const list = new DoublyLinkedNode()
-        assert.isNull(list.data)
-      })
-    })
-
-    context('with one parameter', () => {
-      it('data should have da parameter value', () => {
-        const list = new DoublyLinkedNode(10)
-        assert.equal(list.data, 10)
-      })
-    })
-  })
-})
 
 describe('DoublyLinkedList', function() {
   describe('#get(index)', () => {
@@ -43,33 +23,15 @@ describe('DoublyLinkedList', function() {
     context('insert three items and remove them from head', () => {
       it('should insertBeginning three items to head', function() {
         const list = new DoublyLinkedList()
-        const node1 = new DoublyLinkedNode(1)
-        const node2 = new DoublyLinkedNode(2)
-        const node3 = new DoublyLinkedNode(3)
-        list.insertBeginning(node1)
-        list.insertBeginning(node2)
-        list.insertBeginning(node3)
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
         const first = list.get(0)
         const second = list.get(1)
         const third = list.get(2)
-        assert.equal(first, node3, 'insertBeginning not working.')
-        assert.equal(second, node2, 'insertBeginning not working.')
-        assert.equal(third, node1, 'insertBeginning not working.')
-      })
-    })
-
-    context('with a invalide node', () => {
-      it('should raise an error.', function() {
-        const list = new DoublyLinkedList()
-        try {
-          list.insertBeginning(1)
-          assert.fail('should raise a InvalidArgument error.')
-        } catch (e) {
-          assert.equal(
-            e.message,
-            'node should be a instance of DoublyLinkedNode'
-          )
-        }
+        assert.equal(first, 3, 'insertBeginning not working.')
+        assert.equal(second, 2, 'insertBeginning not working.')
+        assert.equal(third, 1, 'insertBeginning not working.')
       })
     })
   })
@@ -94,18 +56,15 @@ describe('DoublyLinkedList', function() {
     context('insert three items and remove them', () => {
       it('should be inserted and removed successfully', function() {
         const list = new DoublyLinkedList()
-        const node1 = new DoublyLinkedNode(1)
-        const node2 = new DoublyLinkedNode(2)
-        const node3 = new DoublyLinkedNode(3)
-        list.insertBeginning(node1)
-        list.insertBeginning(node2)
-        list.insertBeginning(node3)
+        list.insertBeginning(1)
+        list.insertBeginning(2)
+        list.insertBeginning(3)
         const first = list.removeBeginning()
         const second = list.removeBeginning()
         const third = list.removeBeginning()
-        assert.equal(first, node3, 'removeBeginning not working.')
-        assert.equal(second, node2, 'removeBeginning not working.')
-        assert.equal(third, node1, 'removeBeginning not working.')
+        assert.equal(first, 3, 'removeBeginning not working.')
+        assert.equal(second, 2, 'removeBeginning not working.')
+        assert.equal(third, 1, 'removeBeginning not working.')
         assert.equal(list.head, null, 'removeBeginning not working.')
         assert.equal(list.tail, null, 'removeBeginning not working.')
       })
@@ -114,14 +73,12 @@ describe('DoublyLinkedList', function() {
     context('insert two items at the end and remove them from beginnig', () => {
       it('should insertEnd and removeBeginning two itens', function() {
         const list = new DoublyLinkedList()
-        const node1 = new DoublyLinkedNode(1)
-        const node2 = new DoublyLinkedNode(2)
-        list.insertEnd(node1)
-        list.insertEnd(node2)
+        list.insertEnd(1)
+        list.insertEnd(2)
         const second = list.removeBeginning()
         const first = list.removeBeginning()
-        assert.equal(first, node2, 'removeBeginning not working.')
-        assert.equal(second, node1, 'removeBeginning not working.')
+        assert.equal(first, 2, 'removeBeginning not working.')
+        assert.equal(second, 1, 'removeBeginning not working.')
         assert.equal(list.head, null, 'removeBeginning not working.')
         assert.equal(list.tail, null, 'removeBeginning not working.')
       })
@@ -147,50 +104,42 @@ describe('DoublyLinkedList', function() {
   describe('#insertEnd(data)', function() {
     it('should insertEnd three items', function() {
       const list = new DoublyLinkedList()
-      const node1 = new DoublyLinkedNode(1)
-      const node2 = new DoublyLinkedNode(2)
-      const node3 = new DoublyLinkedNode(3)
-      list.insertEnd(node1)
-      list.insertEnd(node2)
-      list.insertEnd(node3)
+      list.insertEnd(1)
+      list.insertEnd(2)
+      list.insertEnd(3)
       const first = list.get(0)
       const second = list.get(1)
       const third = list.get(2)
-      assert.equal(first, node1, 'insertEnd not working.')
-      assert.equal(second, node2, 'insertEnd not working.')
-      assert.equal(third, node3, 'insertEnd not working.')
+      assert.equal(first, 1, 'insertEnd not working.')
+      assert.equal(second, 2, 'insertEnd not working.')
+      assert.equal(third, 3, 'insertEnd not working.')
     })
   })
 
   describe('#removeEnd()', function() {
     it('should insertEnd and removeEnd three items', function() {
       const list = new DoublyLinkedList()
-      const node1 = new DoublyLinkedNode(1)
-      const node2 = new DoublyLinkedNode(2)
-      const node3 = new DoublyLinkedNode(3)
-      list.insertEnd(node1)
-      list.insertEnd(node2)
-      list.insertEnd(node3)
+      list.insertEnd(1)
+      list.insertEnd(2)
+      list.insertEnd(3)
       const first = list.removeEnd()
       const second = list.removeEnd()
       const third = list.removeEnd()
-      assert.equal(first, node3, 'removeEnd not working.')
-      assert.equal(second, node2, 'removeEnd not working.')
-      assert.equal(third, node1, 'removeEnd not working.')
+      assert.equal(first, 3, 'removeEnd not working.')
+      assert.equal(second, 2, 'removeEnd not working.')
+      assert.equal(third, 1, 'removeEnd not working.')
       assert.equal(list.head, null, 'removeEnd not working.')
       assert.equal(list.tail, null, 'removeEnd not working.')
     })
 
     it('should insertEnd and removeBeginning two itens', function() {
       const list = new DoublyLinkedList()
-      const node1 = new DoublyLinkedNode(1)
-      const node2 = new DoublyLinkedNode(2)
-      list.insertEnd(node1)
-      list.insertEnd(node2)
+      list.insertEnd(1)
+      list.insertEnd(2)
       const second = list.removeBeginning()
       const first = list.removeBeginning()
-      assert.equal(first, node2, 'removeBeginning not working.')
-      assert.equal(second, node1, 'removeBeginning not working.')
+      assert.equal(first, 2, 'removeBeginning not working.')
+      assert.equal(second, 1, 'removeBeginning not working.')
       assert.equal(list.head, null, 'removeBeginning not working.')
       assert.equal(list.tail, null, 'removeBeginning not working.')
     })
@@ -199,6 +148,33 @@ describe('DoublyLinkedList', function() {
       const list = new DoublyLinkedList()
       const nullData = list.removeEnd()
       assert.isNull(nullData)
+    })
+  })
+
+  describe('#get(finder)', function() {
+    it('should get the right data using function', function() {
+      const list = new DoublyLinkedList()
+      list.insertBeginning(1)
+      list.insertBeginning(2)
+      list.insertBeginning(3)
+      const first = list.get(data => data === 3)
+      const second = list.get(data => data === 2)
+      const third = list.get(data => data === 1)
+      const inexistent = list.get(data => data === 4)
+      assert.equal(first, 3, 'get not working')
+      assert.equal(second, 2, 'get not working')
+      assert.equal(third, 1, 'get not working')
+      assert.isNull(inexistent)
+    })
+
+    it('should throws a InvalidArgument exception', function() {
+      const list = new DoublyLinkedList()
+      try {
+        list.get('invalid')
+        assert.fail('A exception should be throw')
+      } catch (e) {
+        assert.instanceOf(e, InvalidArgument)
+      }
     })
   })
 })
