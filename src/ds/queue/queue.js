@@ -7,10 +7,14 @@
 
 'use strict'
 
-const DoublyLinkedList = require('../linked-list/DoublyLinkedList')
+const DoublyLinkedList = require('../linked-list/doubly-linked-list')
 class Queue {
   constructor() {
     this.linkedList = new DoublyLinkedList()
+  }
+
+  isEmpty() {
+    return this.linkedList.isEmpty()
   }
 
   enqueue(data) {

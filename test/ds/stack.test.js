@@ -6,7 +6,7 @@
  */
 
 const chai = require('chai')
-const Stack = require('../src/stack/Stack')
+const Stack = require('../../src/ds/stack/stack')
 
 describe('Stack', function() {
   describe('#pop()', function() {
@@ -33,6 +33,23 @@ describe('Stack', function() {
       chai.assert(stack.get(0), 3, 'get not working')
       chai.assert(stack.get(1), 2, 'get not working')
       chai.assert(stack.get(1), 1, 'get not working')
+    })
+  })
+
+  describe('#isEmpty()', function() {
+    context('when insert 2 items and remove 2 items', () => {
+      it('should be empty at the last operation', function() {
+        const stack = new Stack()
+        chai.assert.isTrue(stack.isEmpty())
+        stack.push(1)
+        chai.assert.isFalse(stack.isEmpty())
+        stack.push(2)
+        chai.assert.isFalse(stack.isEmpty())
+        stack.push()
+        chai.assert.isFalse(stack.isEmpty())
+        stack.push()
+        chai.assert.isTrue(stack.isEmpty())
+      })
     })
   })
 })

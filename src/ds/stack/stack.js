@@ -7,7 +7,7 @@
 
 'use strict'
 
-var SinglyLinkedList = require('../linked-list/SinglyLinkedList')
+var SinglyLinkedList = require('../linked-list/singly-linked-list')
 
 class Stack {
   constructor() {
@@ -29,6 +29,10 @@ class Stack {
 
   get(index) {
     return this.linkedList.get(index)
+  }
+
+  isEmpty() {
+    return this.linkedList.isEmpty()
   }
 }
 

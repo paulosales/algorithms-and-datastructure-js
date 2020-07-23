@@ -1,7 +1,7 @@
-const Trie = require('../src/trie/Trie')
-const InvalidArgument = require('../src/exception/InvalidArgument')
 const chai = require('chai')
 const dirtyChai = require('dirty-chai')
+const Trie = require('../../src/ds/trie/trie')
+const InvalidArgument = require('../../src/ds/exception/invalid-argument')
 
 chai.use(dirtyChai)
 

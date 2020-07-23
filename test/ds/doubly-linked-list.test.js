@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const DoublyLinkedList = require('../src/linked-list/DoublyLinkedList')
-const InvalidArgument = require('../src/exception/InvalidArgument')
+const DoublyLinkedList = require('../../src/ds/linked-list/doubly-linked-list')
+const InvalidArgument = require('../../src/ds/exception/invalid-argument')
 
 const assert = require('chai').assert
 
@@ -175,6 +175,18 @@ describe('DoublyLinkedList', function() {
       } catch (e) {
         assert.instanceOf(e, InvalidArgument)
       }
+    })
+  })
+
+  context('insert 2 item and remove 2 items', () => {
+    it('the list show be empty', () => {
+      const list = new DoublyLinkedList()
+      assert.isTrue(list.isEmpty())
+      list.insertBeginning(1)
+      list.insertBeginning(2)
+      list.removeBeginning()
+      list.removeBeginning()
+      assert.isTrue(list.isEmpty())
     })
   })
 })

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const Heap = require('../src/tree/Heap')
 const { assert } = require('chai')
+const Heap = require('../../src/ds/tree/heap')
 
 describe('Heap', function() {
   describe('#constructor', () => {

@@ -1,6 +1,7 @@
-const HashTable = require('../src/hash/HashTable')
 const chai = require('chai')
 const dirtyChai = require('dirty-chai')
+const HashTable = require('../../src/ds/hash/hash-table')
+
 chai.use(dirtyChai)
 const expect = chai.expect
 

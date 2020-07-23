@@ -7,7 +7,7 @@
 
 'use strict'
 
-const InvalidArgument = require('../exception/InvalidArgument')
+const InvalidArgument = require('../exception/invalid-argument')
 
 /**
  * A Singly Linked List
@@ -132,6 +132,10 @@ class SinglyLinkedList {
     } else {
       return null
     }
+  }
+
+  isEmpty() {
+    return this.head === null
   }
 
   /**

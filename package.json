@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Data-structures for javascript",
   "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
-    "test": "mocha ./test",
-    "test:debug": "mocha --inspect-brk ./test",
-    "test:coverage": "nyc --reporter=lcov mocha ./test",
+    "test": "mocha ./test/**",
+    "test:debug": "mocha --inspect-brk ./test/**",
+    "test:coverage": "nyc --reporter=lcov mocha ./test/**",
     "lint": "eslint '*/**/*.js'",
     "lint:fix": "yarn lint --quiet --fix",
     "prettier": "pretty-quick"

@@ -1,5 +1,5 @@
-const SimpleHash = require('../src/hash/SimpleHash')
 const chai = require('chai')
+const SimpleHash = require('../../src/ds/hash/simple-hash')
 const expect = chai.expect
 
 describe('SimpleHash', () => {
