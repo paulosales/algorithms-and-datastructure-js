@@ -1,6 +1,6 @@
 # data-structure-js &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/paulosales/data-structure/edit/master/LICENSE) [![CircleCI](https://circleci.com/gh/paulosales/algorithms-and-data-structure-js.svg?style=shield)](https://circleci.com/gh/paulosales/algorithms-and-data-structure-js) [![CodeFactor](https://www.codefactor.io/repository/github/paulosales/algorithms-and-data-structure-js/badge)](https://www.codefactor.io/repository/github/paulosales/algorithms-and-data-structure-js) [![codecov](https://codecov.io/gh/paulosales/data-structure-js/branch/master/graph/badge.svg)](https://codecov.io/gh/paulosales/data-structure-js)
 
-A collection of data structures implemented in JavaScript.
+> A collection of algorithms and data structures written in Javascript.
 
 ## Index
 
@@ -13,7 +13,7 @@ A collection of data structures implemented in JavaScript.
 
 ## Singly Linked List
 
-Singly Linked List is a linear data structure where, unlike an array, the data are stored in a non-continuous way.
+Singly Linked List iss a linear data structure where, unlike an array, the data are stored in a non-continuous way.
 
 Here we have a graphical representation of this kind of data structure:
 
