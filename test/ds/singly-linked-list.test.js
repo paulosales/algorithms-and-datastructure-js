@@ -5,10 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const SinglyLinkedList = require('../src/linked-list/SinglyLinkedList')
-const InvalidArgument = require('../src/exception/InvalidArgument')
 const chai = require('chai')
 const dirtyChai = require('dirty-chai')
+const SinglyLinkedList = require('../../src/ds/linked-list/singly-linked-list')
+const InvalidArgument = require('../../src/ds/exception/invalid-argument')
 chai.use(dirtyChai)
 const expect = chai.expect
 
@@ -194,6 +194,23 @@ describe('SinglyLinkedList', function() {
         } catch (e) {
           expect(e).to.be.an.instanceof(InvalidArgument)
         }
+      })
+    })
+  })
+
+  describe('#isEmpty()', function() {
+    context('insert 2 item and remove 2 items', function() {
+      it('the list show be empty', function() {
+        const list = new SinglyLinkedList()
+        expect(list.isEmpty()).to.be.true()
+        list.insertBeginning(1)
+        expect(list.isEmpty()).to.be.false()
+        list.insertBeginning(2)
+        expect(list.isEmpty()).to.be.false()
+        list.removeBeginning()
+        expect(list.isEmpty()).to.be.false()
+        list.removeBeginning()
+        expect(list.isEmpty()).to.be.true()
       })
     })
   })

@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const Queue = require('../src/queue/Queue')
 const { assert } = require('chai')
+const Queue = require('../../src/ds/queue/queue')
 
 describe('Queue', function() {
   describe('#enqueue()', function() {

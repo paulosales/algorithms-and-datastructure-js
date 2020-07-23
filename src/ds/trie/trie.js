@@ -6,7 +6,7 @@
  */
 'use strict'
 
-const InvalidArgument = require('../exception/InvalidArgument')
+const InvalidArgument = require('../exception/invalid-argument')
 
 /**
  * Trie data structure implementation. A Trie is an efficient information retrieval data structure.

@@ -7,8 +7,8 @@
 
 'use strict'
 
-const SinglyLinkedList = require('../linked-list/SinglyLinkedList')
-const SimpleHash = require('./SimpleHash')
+const SinglyLinkedList = require('../linked-list/singly-linked-list')
+const SimpleHash = require('./simple-hash')
 
 /**
  * Implementation of a Hash Table data structure.
