@@ -1,6 +1,6 @@
 const chai = require('chai')
-const breadthFirstSearch = require('../../src/algorithms/tree/breadth-first-search')
-const BinaryTreeBuilder = require('../../src/ds/tree/binary-tree-builder')
+const breadthFirstSearch = require('../../../src/algorithms/tree/breadth-first-search')
+const BinaryTreeBuilder = require('../../../src/ds/tree/binary-tree-builder')
 const expect = chai.expect
 
 describe('Breadth-first Search', () => {

@@ -6,8 +6,8 @@
  */
 
 const { expect } = require('chai')
-const depthFirstSearch = require('../../src/algorithms/tree/depth-first-search')
-const BinaryTreeBuilder = require('../../src/ds/tree/binary-tree-builder')
+const depthFirstSearch = require('../../../src/algorithms/tree/depth-first-search')
+const BinaryTreeBuilder = require('../../../src/ds/tree/binary-tree-builder')
 
 describe('#depthFirstSearch', () => {
   context(
