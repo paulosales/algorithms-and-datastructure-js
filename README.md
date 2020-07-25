@@ -4,55 +4,20 @@
 
 ## Index
 
-1. [Singly Linked List](#singly-linked-list)
-2. [Doubly Linked List](#doubly-linked-list)
-3. [Queue](#queue)
-4. [Stack](#stack)
-5. [Heap](#heap)
-6. [Trie](#trie)
-
-## Singly Linked List
-
-Singly Linked List iss a linear data structure where, unlike an array, the data are stored in a non-continuous way.
-
-Here we have a graphical representation of this kind of data structure:
-
-<img
-  src="https://dl.dropboxusercontent.com/s/o1au4teii239wjv/singly-linked-list.svg"
-  alt="Singly Linked List" width="450"/>
-
-### Singly Single List x Array
-
-There are advantages and drawbacks that must be considered when you are deciding to use Linked Lists instead of Arrays. Let's check it out:
-
-#### Advantages
-
-- Linked Lists has dynamic size and arrays have fixed sizes. It means that an array allocates all memory before using it to store data. Otherwise, Linked List memory usage grows as the data is stored.
-
-- It is easy to insert and delete data into a Linked List, whereas the same is not true in an array.
-
-#### Drawbacks
-
-- It's not possible to access a Linked List data randomly.
-
-## Doubly Linked List
-
-## Queue
-
-## Stack
-
-## Heap
-
-## Trie
-
-A Trie is an efficient information retrieval data structure. Searches with Trie has the key length complexity. The time needed to a well balanced Binary Search Tree is proportional to M \* log(N), where M is maximum string length and N is the number of keys in the tree. Trie is faster than BST, your complexity is **O(M)**. The Achilles' heel of Trie data structure is the required storage size.
-
-Here we have a graphical representation of a Trie:
-
-<img
-  src="https://dl.dropboxusercontent.com/s/5a4yw1zw5sfm9dk/trie.svg"
-  alt="Singly Linked List" width="450"/>
-
-The above trie stores the words **a**, **am**, **all**, **to**, **the**, **they**, **there**, **their**, **no**, and **not**.
-
-## Hashtable
+1. Algorithms
+   1. Tree
+      1. [Breadth first search](docs/algorithms/tree/beadth-first-search.md)
+      2. [Depth first search](docs/algorithms/tree/depth-first-search.md)
+   2. Math
+      1. [Alexandria Heron Method](docs/algorithms/math/alexandria-heron-method.md)
+   3. Cache
+      1. [LRU Cache](docs/algorithms/cache/lru-cache.md)
+2. Data structures
+   1. Linked List
+      1. [Singly Linked List](docs/ds/tree/singly-linked-list.md)
+      2. [Doubly Linked List](docs/ds/tree/doubly-linked-list.md)
+   2. [Queue](docs/ds/queue.md)
+   3. [Stack](docs/ds/stack.md)
+   4. [Heap](docs/ds/heap.md)
+   5. [Trie](docs/ds/trie.md)
+   6. [Hash table](docs/ds/hash-table.md)
