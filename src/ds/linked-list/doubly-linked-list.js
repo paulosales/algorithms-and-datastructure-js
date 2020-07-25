@@ -21,8 +21,9 @@ class DoublyLinkedList {
   /**
    * Create a node in the beginning of the list and store the data there.
    * @param {any} data The data that will be inserted.
+   * @returns {DoublyLinkedNode} the inserted node.
    */
-  insertBeginning(data) {
+  unshift(data) {
     const node = new DoublyLinkedNode(data)
     node.prev = null
     node.next = this.head
@@ -33,12 +34,14 @@ class DoublyLinkedList {
     if (node.next) {
       node.next.prev = node
     }
+    return node
   }
 
   /**
    * Remove the first node.
+   * @returns {DoublyLinkedNode} the removed node.
    */
-  removeBeginning() {
+  shift() {
     const currentNode = this.head
     if (this.head) {
       if (this.head.next) {
@@ -49,7 +52,7 @@ class DoublyLinkedList {
         this.tail = null
       }
       currentNode.next = null
-      return currentNode.data
+      return currentNode
     }
     return null
   }
@@ -57,8 +60,9 @@ class DoublyLinkedList {
   /**
    * Create a node in the end of the list and store the data there.
    * @param {any} data The data that will be inserted.
+   * @returns {DoublyLinkedNode} the inserted node.
    */
-  insertEnd(data) {
+  push(data) {
     const node = new DoublyLinkedNode(data)
     node.next = null
     node.prev = this.tail
@@ -69,12 +73,14 @@ class DoublyLinkedList {
     if (node.prev) {
       node.prev.next = node
     }
+    return node
   }
 
   /**
-   * Remove the last node.
+   * Remove the last node and return it.
+   * @returns {DoublyLinkedNode} The removed node.
    */
-  removeEnd() {
+  pop() {
     const currentNode = this.tail
     if (this.tail) {
       if (this.tail.prev) {
@@ -85,7 +91,7 @@ class DoublyLinkedList {
         this.head = null
       }
       currentNode.prev = null
-      return currentNode.data
+      return currentNode
     }
     return null
   }
@@ -114,6 +120,27 @@ class DoublyLinkedList {
   }
 
   /**
+   * Remove a node from the linked list.
+   * @param {DoublyLinkedNode} node the that should be removed.
+   */
+  remove(node) {
+    if (node === this.tail) {
+      this.tail = node.prev
+    } else {
+      node.next.prev = node.prev
+    }
+
+    if (node === this.head) {
+      this.head = node.next
+    } else {
+      node.prev.next = node.next
+    }
+
+    node.prev = null
+    node.next = null
+  }
+
+  /**
    * Search the data into the linked list and return it.
    * @param {number|function} finder index number or a function that receives a data as a parameter a return true if that requested data is founded.
    */
@@ -129,6 +156,11 @@ class DoublyLinkedList {
 
   isEmpty() {
     return this.head === null
+  }
+
+  clear() {
+    this.head = null
+    this.tail = null
   }
 }
 

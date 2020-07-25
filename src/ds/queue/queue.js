@@ -18,13 +18,13 @@ class Queue {
   }
 
   enqueue(data) {
-    this.linkedList.insertBeginning(data)
+    this.linkedList.unshift(data)
   }
 
   dequeue() {
-    const removed = this.linkedList.removeEnd()
+    const removed = this.linkedList.pop()
     if (removed) {
-      return removed
+      return removed.data
     } else {
       return null
     }
